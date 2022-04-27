@@ -1,0 +1,50 @@
+﻿@model LocadoraCarros.Models.Carro
+
+@{
+    ViewData["Title"] = "Cadastrar Carro";
+}
+
+
+
+<h1>Cadastrar Carro</h1>
+<h4>Curso</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label">Modelo</label>
+                <input asp-for="Modelo" class="form-control" placeholder="Modelo"/>
+                <span asp-validation-for="Modelo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label">Marca</label>
+                <input asp-for="Marca" class="form-control" placeholder="Marca"/>
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ano" class="control-label">Ano</label>
+                <input asp-for="Ano" class="form-control" placeholder="Ano"/>
+                <span asp-validation-for="Ano" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cor" class="control-label">Cor</label>
+                <input asp-for="Cor" class="form-control" placeholder="Cor"/>
+                <span asp-validation-for="Cor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Adicionar" class="btn btn-primary" />
+                <input class="btn btn-outline-danger" type="reset" value="Limpar">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

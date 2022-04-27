@@ -1,0 +1,49 @@
+﻿@model LocadoraCarros.Models.Cliente
+
+@{
+     ViewData["Title"] = "Cadastrar Cliente";
+}
+
+<h1>Cadastro</h1>
+
+<h4>Cadastrar Cliente</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label">Nome</label>
+                <input asp-for="Nome" class="form-control"placeholder="Nome do cliente" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Documento" class="control-label">Documento</label>
+                <input asp-for="Documento" class="form-control" placeholder="000.000.000-00"/>
+                <span asp-validation-for="Documento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataNascimento" class="control-label">Data de Nascimento</label>
+                <input asp-for="DataNascimento" class="form-control" placeholder="00/00/0000"/>
+                <span asp-validation-for="DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefone" class="control-label">Telefone</label>
+                <input asp-for="Telefone" class="form-control"placeholder="Apenas números" />
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary"  />
+                <input class="btn btn-outline-danger" type="reset" value="Limpar">
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
